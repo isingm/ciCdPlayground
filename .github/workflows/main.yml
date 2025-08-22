@@ -41,4 +41,6 @@ jobs:
         files: |
           **/reports/*.xml
     - name: Tag the commit
-      run: git tag ${{ inputs.version }}
+      run: |
+        git tag ${{ inputs.version }}
+        git push tag ${{ inputs.version }}
