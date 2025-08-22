@@ -41,6 +41,7 @@ jobs:
         files: |
           **/reports/*.xml
     - name: Tag the commit
+      if: ${{ inputs.version != '' }}
       run: |
         git tag ${{ inputs.version }}
         git push origin tag ${{ inputs.version }}
