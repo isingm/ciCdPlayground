@@ -14,6 +14,10 @@ pipeline {
         stage('build') {
             steps {
                 sh 'yarn build'
+                script {
+                    buildName = "Build with Jenkins"
+                    currentBuild.description = "Deploying commit: ${env.GIT_COMMIT}"
+                }
             }
         }
 
