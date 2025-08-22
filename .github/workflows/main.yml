@@ -43,4 +43,4 @@ jobs:
     - name: Tag the commit
       run: |
         git tag ${{ inputs.version }}
-        git push tag ${{ inputs.version }}
+        git push origin tag ${{ inputs.version }}
