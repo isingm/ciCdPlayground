@@ -4,6 +4,10 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      version:
+        required: true
+        default: '1.0.0'
   
 permissions:
   checks: write
@@ -36,3 +40,5 @@ jobs:
       with:
         files: |
           **/reports/*.xml
+    - name: Tag the commit
+      run: git tag ${{ inputs.version }}
